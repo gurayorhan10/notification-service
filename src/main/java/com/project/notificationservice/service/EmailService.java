@@ -4,6 +4,7 @@ import jakarta.mail.internet.InternetAddress;
 import jakarta.mail.internet.MimeMessage;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -16,6 +17,8 @@ public class EmailService {
     @Autowired
     private JavaMailSender emailSender;
 
+    @Value("${spring.mail.username}")
+    private String sender;
 
     public void send(String to, String title, String content, Boolean isSimple) {
         try{
@@ -28,7 +31,7 @@ public class EmailService {
             }else{
                 MimeMessage message = emailSender.createMimeMessage();
                 MimeMessageHelper helper = new MimeMessageHelper(message, true, "UTF-8");
-                helper.setFrom(new InternetAddress("guray754@gmail.com", "Personel"));
+                helper.setFrom(new InternetAddress(sender, "Bilgilendirme"));
                 helper.setTo(to);
                 helper.setSubject(title);
                 helper.setText(content, true);
