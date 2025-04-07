@@ -7,7 +7,6 @@ import com.project.notificationservice.rabbit.queue.EmailSendQueue;
 import com.project.notificationservice.service.EmailService;
 import jakarta.mail.MessagingException;
 import lombok.extern.slf4j.Slf4j;
-import org.modelmapper.ModelMapper;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
