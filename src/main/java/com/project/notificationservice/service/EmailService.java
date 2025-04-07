@@ -16,7 +16,7 @@ public class EmailService {
 
     @Autowired
     private JavaMailSender emailSender;
-    
+
     @Value("${spring.mail.username}")
     private String sender;
 
@@ -31,7 +31,7 @@ public class EmailService {
             }else{
                 MimeMessage message = emailSender.createMimeMessage();
                 MimeMessageHelper helper = new MimeMessageHelper(message, true, "UTF-8");
-                helper.setFrom(new InternetAddress(sender, "Personel"));
+                helper.setFrom(new InternetAddress(sender, "Bilgilendirme"));
                 helper.setTo(to);
                 helper.setSubject(title);
                 helper.setText(content, true);
