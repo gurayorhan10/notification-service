@@ -7,7 +7,7 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum MessageConstant {
-    USERNAME_CANNOT_BLANK("Username cannot be left blank."),
-    USERNAME_BY_SYSTEM_ERROR("Operations cannot be performed with the SYSTEM user.");
+    USERNAME_CANNOT_BLANK("Kullanıcı adı boş bırakılamaz."),
+    USERNAME_BY_SYSTEM_ERROR("SYSTEM kullanıcısı ile işlem yapılamaz.");
     private final String message;
 }
